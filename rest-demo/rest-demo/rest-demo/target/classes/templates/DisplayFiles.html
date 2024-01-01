@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display files</title>
+    <style>
+        *{
+        font-family:'sans-serif';
+        }
+        th, td {
+          padding-top: 10px;
+          padding-bottom: 20px;
+          padding-left: 30px;
+          padding-right: 40px;
+          border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align:center;">Uploaded files</h2>
+
+<table style="margin:auto;">
+    <thead>
+    <th>File name</th>
+    <th>File type</th>
+    <th>Download</th>
+    </thead>
+    <tbody>
+    <tr th:each="file: ${allFiles}">
+        <td><span th:text="${file.name}"></span></td>
+        <td><span th:text="${file.fileType}"></span></td>
+        <td><a th:href="${file.id}">Download</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
